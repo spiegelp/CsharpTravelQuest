@@ -1,0 +1,13 @@
+{
+    "name": "C# Travel Quest",
+    "short_name": "C# Travel Quest",
+    "orientation": "landscape",
+    "description": "C# Travel Quest",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": [96, 128, 192, 256]
+        }
+    ]
+}
