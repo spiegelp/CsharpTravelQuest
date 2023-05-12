@@ -14,13 +14,21 @@ export const player: RpgPlayerHooks = {
         }
     },*/
     async onJoinMap(player: RpgPlayer) {
-        if (player.getVariable('AFTER_INTRO')) {
-            return;
-        }
+        if (!player.getVariable('AFTER_INTRO')) {
+            await player.showText('Prinzessin Lynn steckt in einem schlimmen Albtraum fest.');
+            await player.showText('Der hinterhältige Katzendämonenkönig sucht sie heim.');
+            
+            player.setVariable('AFTER_INTRO', true);
 
-        await player.showText('Prinzessin Lynn steckt in einem schlimmen Albtraum.');
-        await player.showText('Der hinterhältige Katzendämonenkönig sucht sie heim.');
-        
-        player.setVariable('AFTER_INTRO', true);
+            return;
+        } else {
+            let currentQuest = player.getVariable('CURRENT_QUEST');
+
+            if (currentQuest) {
+                if (currentQuest === 'questBasicDataTypes') {
+                    await player.showText('Spreche mit allen im Wald, um die grundlegenden Datentypen kennenzulernen.');
+                }
+            }
+        }
     }
 }

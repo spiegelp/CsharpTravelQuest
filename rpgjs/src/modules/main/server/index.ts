@@ -2,6 +2,7 @@ import { RpgServer, RpgModule } from '@rpgjs/server'
 import world from './maps/tmx/myworld.world'
 import { SampleMap } from './maps/samplemap'
 import { player } from './player'
+import { DataForestMap } from './maps/dataForestMap'
 
 @RpgModule<RpgServer>({ 
     player,
@@ -16,7 +17,8 @@ import { player } from './player'
      * The fact of putting a map allows to have more possibilities on the manipulation of the map (put events, properties in the class, etc.)
      */
     maps: [
-        SampleMap
+        SampleMap,
+        DataForestMap
     ]
 })
 export default class RpgServerModuleEngine {}
