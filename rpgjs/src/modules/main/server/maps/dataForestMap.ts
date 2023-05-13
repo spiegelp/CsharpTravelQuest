@@ -1,5 +1,6 @@
 import { RpgMap, MapData } from '@rpgjs/server'
 import { BardEvent } from '../events/bardEvent';
+import { DemonKingEvent } from '../events/demonKingEvent';
 import { SkeletonEvent } from '../events/skeletonEvent';
 import { WitchEvent } from '../events/witchEvent';
 import { WizardEvent } from '../events/wizardEvent';
@@ -12,7 +13,8 @@ import { WizardEvent } from '../events/wizardEvent';
         BardEvent,
         SkeletonEvent,
         WitchEvent,
-        WizardEvent
+        WizardEvent,
+        DemonKingEvent
     ]
 })
 export class DataForestMap extends RpgMap { }

@@ -27,6 +27,7 @@ export const player: RpgPlayerHooks = {
             if (currentQuest) {
                 if (currentQuest === 'questBasicDataTypes') {
                     await player.showText('Spreche mit allen im Wald, um die grundlegenden Datentypen kennenzulernen.');
+                    await player.showText('Der Katzendämonenkönig will dich nämlich darüber ausfragen.');
                 }
             }
         }

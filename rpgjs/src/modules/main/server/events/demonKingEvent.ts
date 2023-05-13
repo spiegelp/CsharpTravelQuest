@@ -1,7 +1,7 @@
 import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server'
 
 @EventData({
-    name: 'EV-demonKingNeko', 
+    name: 'EV-demonKingNeko',
     hitbox: {
         width: 32,
         height: 16
@@ -26,6 +26,105 @@ export class DemonKingEvent extends RpgEvent {
             player.setVariable('CURRENT_QUEST', 'questBasicDataTypes');
 
             player.changeMap('dataForestMap');
+        } else {
+            let currentQuest = player.getVariable('CURRENT_QUEST');
+
+            if (currentQuest) {
+                if (currentQuest === 'questBasicDataTypes') {
+                    await this.basicDataTypesQuestQuiz(player);
+                }
+            }
+        }
+    }
+    async basicDataTypesQuestQuiz(player: RpgPlayer) {
+        let result = await this.askQuizQuestion(
+            player,
+            'Was für Daten sind byte, short, int und long?',
+            'int',
+            [
+                { text: 'Ganzzahlen', value: 'int' },
+                { text: 'Dezimalzahlen', value: 'decimal' },
+                { text: 'Text', value: 'string' },
+                { text: 'Wahrheitswerte', value: 'bool' }
+            ]
+        );
+
+        if (!result) {
+            return;
+        }
+
+        result = await this.askQuizQuestion(
+            player,
+            'Was für Daten sind in einem string?',
+            'string',
+            [
+                { text: 'Ganzzahlen', value: 'int' },
+                { text: 'Dezimalzahlen', value: 'decimal' },
+                { text: 'Text', value: 'string' },
+                { text: 'Wahrheitswerte', value: 'bool' }
+            ]
+        );
+
+        if (!result) {
+            return;
+        }
+
+        result = await this.askQuizQuestion(
+            player,
+            'Was für Daten sind float, double und decimal?',
+            'decimal',
+            [
+                { text: 'Ganzzahlen', value: 'int' },
+                { text: 'Dezimalzahlen', value: 'decimal' },
+                { text: 'Text', value: 'string' },
+                { text: 'Wahrheitswerte', value: 'bool' }
+            ]
+        );
+
+        if (!result) {
+            return;
+        }
+
+        result = await this.askQuizQuestion(
+            player,
+            'Was für Daten sind in bool?',
+            'bool',
+            [
+                { text: 'Ganzzahlen', value: 'int' },
+                { text: 'Dezimalzahlen', value: 'decimal' },
+                { text: 'Text', value: 'string' },
+                { text: 'Wahrheitswerte', value: 'bool' }
+            ]
+        );
+
+        if (result) {
+            await player.showText(
+                'Argh, alle Fragen richtig beantwortet.',
+                { talkWith: this }
+            );
+        }
+    }
+    async askQuizQuestion(player: RpgPlayer, question: string, correctChoiceValue: string, choices: Array<{ text: string, value: any }>) : Promise<boolean> {
+        let choice = await player.showChoices(
+            question,
+            choices,
+            { talkWith: this }
+        );
+
+        if (choice?.value === correctChoiceValue) {
+            await player.showText(
+                'Leider korrekt.',
+                { talkWith: this }
+            );
+
+            return true;
+        } else {
+            await player.showText(
+                'Hahaha, falsch!',
+                { talkWith: this }
+            );
+
+            return false;
         }
     }
 }

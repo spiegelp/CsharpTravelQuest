@@ -21,7 +21,7 @@ export class BardEvent extends RpgEvent {
                     { talkWith: this }
                 );
                 await player.showText(
-                    'Sie sind natürlich in einem string verfasst.',
+                    'Meine Texte sind natürlich in einem string verfasst.',
                     { talkWith: this }
                 );
             }
