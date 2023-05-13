@@ -3,6 +3,7 @@ import world from './maps/tmx/myworld.world'
 import { SampleMap } from './maps/samplemap'
 import { player } from './player'
 import { DataForestMap } from './maps/dataForestMap'
+import { IntroIslandMap } from './maps/introIslandMap'
 
 @RpgModule<RpgServer>({ 
     player,
@@ -18,6 +19,7 @@ import { DataForestMap } from './maps/dataForestMap'
      */
     maps: [
         SampleMap,
+        IntroIslandMap,
         DataForestMap
     ]
 })
