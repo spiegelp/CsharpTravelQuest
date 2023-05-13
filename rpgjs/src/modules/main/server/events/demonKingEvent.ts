@@ -14,11 +14,7 @@ export class DemonKingEvent extends RpgEvent {
     async onAction(player: RpgPlayer) {
         if (!player.getVariable('AFTER_INTRO_DREAM')) {
             await player.showText(
-                'Wir, der mächtige Katzendämonenkönig, tragen Euch auf, eine Programmiersprache zu lernen.',
-                { talkWith: this }
-            );
-            await player.showText(
-                'So gütig wie Wir sind, dürft Ihr von Uns aus C# lernen. Hahaha!',
+                'Wir, der mächtige Katzendämonenkönig, tragen Euch auf, eine Programmiersprache zu lernen. So gütig wie Wir sind, dürft Ihr von Uns aus C# lernen. Hahaha!',
                 { talkWith: this }
             );
 
@@ -99,7 +95,7 @@ export class DemonKingEvent extends RpgEvent {
 
         if (result) {
             await player.showText(
-                'Argh, alle Fragen richtig beantwortet.',
+                'Argh, alle Fragen richtig beantwortet. Nun gut, Ihr dürft den Wald verlassen.',
                 { talkWith: this }
             );
         }
@@ -113,7 +109,7 @@ export class DemonKingEvent extends RpgEvent {
 
         if (choice?.value === correctChoiceValue) {
             await player.showText(
-                'Leider korrekt.',
+                'Grrr, korrekt.',
                 { talkWith: this }
             );
 

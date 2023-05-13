@@ -17,15 +17,7 @@ export class WitchEvent extends RpgEvent {
         if (currentQuest) {
             if (currentQuest === 'questBasicDataTypes') {
                 await player.showText(
-                    'Mein Vater will nur das Ganze sehen.',
-                    { talkWith: this }
-                );
-                await player.showText(
-                    'Ich, die Zahlen-Hexe mag dagegen die kleinen Details von allen Dezimalzahlen:',
-                    { talkWith: this }
-                );
-                await player.showText(
-                    'float, double und decimal. Ich liebe sie alle.',
+                    'Mein Vater will nur das Ganze sehen. Ich, die Zahlenhexe, mag dagegen die kleinen Details von allen Dezimalzahlen: float, double und decimal. Ich liebe sie alle.',
                     { talkWith: this }
                 );
             }

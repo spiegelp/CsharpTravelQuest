@@ -17,11 +17,7 @@ export class SkeletonEvent extends RpgEvent {
         if (currentQuest) {
             if (currentQuest === 'questBasicDataTypes') {
                 await player.showText(
-                    'Leben oder nicht leben. Was trifft auf mich wandelndes Skelett zu?',
-                    { talkWith: this }
-                );
-                await player.showText(
-                    'Daher kann nur der bool zu mir passen. Lebe ich: true oder false?',
+                    'Leben oder nicht leben. Was trifft auf mich wandelndes Skelett zu? Daher kann nur der bool zu mir passen. Lebe ich: true oder false?',
                     { talkWith: this }
                 );
             }

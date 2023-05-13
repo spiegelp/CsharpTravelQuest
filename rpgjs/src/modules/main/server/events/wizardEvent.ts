@@ -17,11 +17,7 @@ export class WizardEvent extends RpgEvent {
         if (currentQuest) {
             if (currentQuest === 'questBasicDataTypes') {
                 await player.showText(
-                    'Ich bin der Mathemagier und habe den Blick für das große Ganze.',
-                    { talkWith: this }
-                );
-                await player.showText(
-                    'Die Ganzzahlen byte, short, int und long sind meine Leidenschaft.',
+                    'Ich bin der Mathemagier und habe den Blick für das große Ganze. Die Ganzzahlen byte, short, int und long sind meine Leidenschaft.',
                     { talkWith: this }
                 );
             }

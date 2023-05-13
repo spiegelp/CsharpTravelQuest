@@ -15,8 +15,7 @@ export const player: RpgPlayerHooks = {
     },*/
     async onJoinMap(player: RpgPlayer) {
         if (!player.getVariable('AFTER_INTRO')) {
-            await player.showText('Prinzessin Lynn steckt in einem schlimmen Albtraum fest.');
-            await player.showText('Der hinterhältige Katzendämonenkönig sucht sie heim.');
+            await player.showText('Prinzessin Lynn steckt in einem schlimmen Albtraum fest. Der hinterhältige Katzendämonenkönig sucht sie heim.');
             
             player.setVariable('AFTER_INTRO', true);
 
@@ -26,8 +25,7 @@ export const player: RpgPlayerHooks = {
 
             if (currentQuest) {
                 if (currentQuest === 'questBasicDataTypes') {
-                    await player.showText('Spreche mit allen im Wald, um die grundlegenden Datentypen kennenzulernen.');
-                    await player.showText('Der Katzendämonenkönig will dich nämlich darüber ausfragen.');
+                    await player.showText('Spreche mit allen im Wald, um die grundlegenden Datentypen kennenzulernen. Der Katzendämonenkönig will dich nämlich darüber ausfragen.');
                 }
             }
         }

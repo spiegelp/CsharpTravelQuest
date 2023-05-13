@@ -17,11 +17,7 @@ export class BardEvent extends RpgEvent {
         if (currentQuest) {
             if (currentQuest === 'questBasicDataTypes') {
                 await player.showText(
-                    'Als der weltberühmte Dichter drücke ich mich nur mit den wohlüberlegtesten Worten aus.',
-                    { talkWith: this }
-                );
-                await player.showText(
-                    'Meine Texte sind natürlich in einem string verfasst.',
+                    'Als der weltberühmte Dichter drücke ich mich nur mit den wohlüberlegtesten Worten aus. Meine Texte sind natürlich in einem string niedergeschrieben.',
                     { talkWith: this }
                 );
             }
