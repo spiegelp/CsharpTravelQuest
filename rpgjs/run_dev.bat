@@ -1,0 +1,1 @@
+npx cross-env RPG_TYPE=rpg npm run dev
