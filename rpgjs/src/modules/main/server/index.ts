@@ -4,6 +4,7 @@ import { SampleMap } from './maps/samplemap'
 import { player } from './player'
 import { DataForestMap } from './maps/dataForestMap'
 import { IntroIslandMap } from './maps/introIslandMap'
+import { DataForestPathMap } from './maps/dataForestPathMap'
 
 @RpgModule<RpgServer>({ 
     player,
@@ -20,7 +21,8 @@ import { IntroIslandMap } from './maps/introIslandMap'
     maps: [
         SampleMap,
         IntroIslandMap,
-        DataForestMap
+        DataForestMap,
+        DataForestPathMap
     ]
 })
 export default class RpgServerModuleEngine {}
