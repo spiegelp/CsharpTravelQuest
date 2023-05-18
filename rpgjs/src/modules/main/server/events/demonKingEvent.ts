@@ -1,4 +1,4 @@
-import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server'
+import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server';
 
 @EventData({
     name: 'EV-demonKingNeko',
@@ -8,9 +8,11 @@ import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server'
     }
 })
 export class DemonKingEvent extends RpgEvent {
+
     onInit() {
         this.setGraphic('demon_king_neko_001');
     }
+
     async onAction(player: RpgPlayer) {
         if (!player.getVariable('AFTER_INTRO_DREAM')) {
             await player.showText(
@@ -27,12 +29,17 @@ export class DemonKingEvent extends RpgEvent {
 
             if (currentQuest) {
                 if (currentQuest === 'questBasicDataTypes') {
-                    await this.basicDataTypesQuestQuiz(player);
+                    let result = await this.basicDataTypesQuestQuiz(player);
+
+                    if (result) {
+                        player.removeVariable('CURRENT_QUEST');
+                    }
                 }
             }
         }
     }
-    async basicDataTypesQuestQuiz(player: RpgPlayer) {
+
+    async basicDataTypesQuestQuiz(player: RpgPlayer): Promise<boolean> {
         let result = await this.askQuizQuestion(
             player,
             'Was für Daten sind byte, short, int und long?',
@@ -46,7 +53,7 @@ export class DemonKingEvent extends RpgEvent {
         );
 
         if (!result) {
-            return;
+            return false;
         }
 
         result = await this.askQuizQuestion(
@@ -62,7 +69,7 @@ export class DemonKingEvent extends RpgEvent {
         );
 
         if (!result) {
-            return;
+            return false;
         }
 
         result = await this.askQuizQuestion(
@@ -78,7 +85,7 @@ export class DemonKingEvent extends RpgEvent {
         );
 
         if (!result) {
-            return;
+            return false;
         }
 
         result = await this.askQuizQuestion(
@@ -98,8 +105,13 @@ export class DemonKingEvent extends RpgEvent {
                 'Argh, alle Fragen richtig beantwortet. Nun gut, Ihr dürft den Wald verlassen.',
                 { talkWith: this }
             );
+
+            return true;
+        } else {
+            return false;
         }
     }
+
     async askQuizQuestion(player: RpgPlayer, question: string, correctChoiceValue: string, choices: Array<{ text: string, value: any }>) : Promise<boolean> {
         let choice = await player.showChoices(
             question,
