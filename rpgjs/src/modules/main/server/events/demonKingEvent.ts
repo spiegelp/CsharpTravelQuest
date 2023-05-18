@@ -32,7 +32,7 @@ export class DemonKingEvent extends RpgEvent {
                     let result = await this.basicDataTypesQuestQuiz(player);
 
                     if (result) {
-                        player.removeVariable('CURRENT_QUEST');
+                        player.setVariable('CURRENT_QUEST', 'returnToCastle');
                     }
                 }
             }

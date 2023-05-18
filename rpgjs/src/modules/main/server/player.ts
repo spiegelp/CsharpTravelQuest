@@ -60,6 +60,10 @@ export const player: RpgPlayerHooks = {
             await player.showText('Löse zuerst das Quiz vom Katzendämonenkönig.');
 
             return false;
+        } else if (player.getCurrentMap()?.id === 'dataForestPathMap' && player.getVariable('CURRENT_QUEST') === 'castleFloor1Map') {
+            await player.showText('Sprich mit dem Weißen Ritter, der dich sicher zurück zum Schloss geleiten wird.');
+
+            return false;
         }
 
         return true;

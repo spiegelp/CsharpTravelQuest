@@ -11,7 +11,8 @@ const { RMSpritesheet } = Presets
         skeleton_001: require('./assets/skeleton_001.png'),
         witch_001: require('./assets/witch_001.png'),
         wizard_001: require('./assets/wizard_001.png'),
-        maid_001: require('./assets/maid_001.png')
+        maid_001: require('./assets/maid_001.png'),
+        knight_001: require('./assets/knight_001.png')
     },
     width: 96,
     height: 128,
