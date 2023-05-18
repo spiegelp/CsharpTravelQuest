@@ -45,6 +45,12 @@ export const player: RpgPlayerHooks = {
                 if (nextMapId && entryPointId) {
                     player.changeMap(nextMapId, entryPointId);
                 }
+            } else if (type === 'teleport') {
+                let entryPointId = shape.properties['entryPointId'];
+
+                if (entryPointId) {
+                    player.teleport(entryPointId);
+                }
             }
         }
     },
