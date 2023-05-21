@@ -1,4 +1,5 @@
 import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server'
+import { Constants } from '../constants';
 
 @EventData({
     name: 'EV-whiteKnight',
@@ -14,12 +15,12 @@ export class WhiteKnightEvent extends RpgEvent {
     }
 
     async onAction(player: RpgPlayer) {
-        let currentQuest = player.getVariable('CURRENT_QUEST');
+        let currentQuest = player.getVariable(Constants.PlayerVarCurrentQuest);
 
         if (currentQuest) {
-            if (currentQuest === 'returnToCastle') {
+            if (currentQuest === Constants.QuestReturnToCastle) {
                 await player.showText(
-                    'Seid Ihr wohlauf Eure Hoheit? Ich geleite Euch sicher zum Schloss zurück.',
+                    'Seid Ihr wohlauf, Eure Hoheit? Ich geleite Euch sicher zum Schloss zurück.',
                     { talkWith: this }
                 );
 

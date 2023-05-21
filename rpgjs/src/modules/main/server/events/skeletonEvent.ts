@@ -1,4 +1,5 @@
 import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server'
+import { Constants } from '../constants';
 
 @EventData({
     name: 'EV-skeleton', 
@@ -12,10 +13,10 @@ export class SkeletonEvent extends RpgEvent {
         this.setGraphic('skeleton_001');
     }
     async onAction(player: RpgPlayer) {
-        let currentQuest = player.getVariable('CURRENT_QUEST');
+        let currentQuest = player.getVariable(Constants.PlayerVarCurrentQuest);
 
         if (currentQuest) {
-            if (currentQuest === 'questBasicDataTypes') {
+            if (currentQuest === Constants.QuestBasicDataTypes) {
                 await player.showText(
                     'Leben oder nicht leben. Was trifft auf mich wandelndes Skelett zu? Daher kann nur der bool zu mir passen. Lebe ich: true oder false?',
                     { talkWith: this }

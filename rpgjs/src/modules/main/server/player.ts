@@ -21,17 +21,13 @@ export const player: RpgPlayerHooks = {
     },*/
 
     async onJoinMap(player: RpgPlayer) {
-        if (!player.getVariable('AFTER_INTRO')) {
+        if (!player.getVariable(Constants.PlayerVarAfterIntroDream)) {
             await player.showText('Prinzessin Lynn steckt in einem schlimmen Albtraum fest. Der hinterhältige Katzendämonenkönig sucht sie heim.');
-            
-            player.setVariable('AFTER_INTRO', true);
-
-            return;
         } else {
-            let currentQuest = player.getVariable('CURRENT_QUEST');
+            let currentQuest = player.getVariable(Constants.PlayerVarCurrentQuest);
 
             if (currentQuest) {
-                if (currentQuest === 'questBasicDataTypes' && player.getCurrentMap()?.id === 'dataForestMap') {
+                if (currentQuest === Constants.QuestBasicDataTypes && player.getCurrentMap()?.id === 'dataForestMap') {
                     await player.showText('Spreche mit allen im Wald, um die grundlegenden Datentypen kennenzulernen. Der Katzendämonenkönig will dich nämlich darüber ausfragen.');
                 }
             }
@@ -60,11 +56,11 @@ export const player: RpgPlayerHooks = {
     },
 
     async canChangeMap(player: RpgPlayer, nextMap: RpgClassMap<RpgMap>): Promise<boolean> {
-        if (player.getCurrentMap()?.id === 'dataForestMap' && player.getVariable('CURRENT_QUEST') === 'questBasicDataTypes') {
+        if (player.getCurrentMap()?.id === 'dataForestMap' && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestBasicDataTypes) {
             await player.showText('Löse zuerst das Quiz vom Katzendämonenkönig.');
 
             return false;
-        } else if (player.getCurrentMap()?.id === 'dataForestPathMap' && player.getVariable('CURRENT_QUEST') === 'castleFloor1Map') {
+        } else if (player.getCurrentMap()?.id === 'dataForestPathMap' && player.getVariable(Constants.PlayerVarCurrentQuest) === 'castleFloor1Map') {
             await player.showText('Sprich mit dem Weißen Ritter, der dich sicher zurück zum Schloss geleiten wird.');
 
             return false;

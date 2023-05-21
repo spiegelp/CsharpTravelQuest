@@ -1,4 +1,5 @@
 import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server'
+import { Constants } from '../constants';
 
 @EventData({
     name: 'EV-bard', 
@@ -12,10 +13,10 @@ export class BardEvent extends RpgEvent {
         this.setGraphic('bard_001');
     }
     async onAction(player: RpgPlayer) {
-        let currentQuest = player.getVariable('CURRENT_QUEST');
+        let currentQuest = player.getVariable(Constants.PlayerVarCurrentQuest);
 
         if (currentQuest) {
-            if (currentQuest === 'questBasicDataTypes') {
+            if (currentQuest === Constants.QuestBasicDataTypes) {
                 await player.showText(
                     'Als der weltberühmte Dichter drücke ich mich nur mit den wohlüberlegtesten Worten aus. Meine Texte sind natürlich in einem string niedergeschrieben.',
                     { talkWith: this }

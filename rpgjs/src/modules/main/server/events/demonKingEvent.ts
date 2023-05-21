@@ -1,4 +1,5 @@
 import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server';
+import { Constants } from '../constants';
 
 @EventData({
     name: 'EV-demonKingNeko',
@@ -14,25 +15,25 @@ export class DemonKingEvent extends RpgEvent {
     }
 
     async onAction(player: RpgPlayer) {
-        if (!player.getVariable('AFTER_INTRO_DREAM')) {
+        if (!player.getVariable(Constants.PlayerVarAfterIntroDream)) {
             await player.showText(
                 'Wir, der mächtige Katzendämonenkönig, tragen Euch auf, eine Programmiersprache zu lernen. So gütig wie Wir sind, dürft Ihr von Uns aus C# lernen. Hahaha!',
                 { talkWith: this }
             );
 
-            player.setVariable('AFTER_INTRO_DREAM', true);
-            player.setVariable('CURRENT_QUEST', 'questBasicDataTypes');
+            player.setVariable(Constants.PlayerVarAfterIntroDream, true);
+            player.setVariable(Constants.PlayerVarCurrentQuest, Constants.QuestBasicDataTypes);
 
             player.changeMap('dataForestMap');
         } else {
-            let currentQuest = player.getVariable('CURRENT_QUEST');
+            let currentQuest = player.getVariable(Constants.PlayerVarCurrentQuest);
 
             if (currentQuest) {
-                if (currentQuest === 'questBasicDataTypes') {
+                if (currentQuest === Constants.QuestBasicDataTypes) {
                     let result = await this.basicDataTypesQuestQuiz(player);
 
                     if (result) {
-                        player.setVariable('CURRENT_QUEST', 'returnToCastle');
+                        player.setVariable(Constants.PlayerVarCurrentQuest, Constants.QuestReturnToCastle);
                     }
                 }
             }

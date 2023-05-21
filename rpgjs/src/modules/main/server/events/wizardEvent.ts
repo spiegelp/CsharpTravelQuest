@@ -1,4 +1,5 @@
 import { RpgEvent, EventData, RpgPlayer } from '@rpgjs/server'
+import { Constants } from '../constants';
 
 @EventData({
     name: 'EV-wizard', 
@@ -12,10 +13,10 @@ export class WizardEvent extends RpgEvent {
         this.setGraphic('wizard_001');
     }
     async onAction(player: RpgPlayer) {
-        let currentQuest = player.getVariable('CURRENT_QUEST');
+        let currentQuest = player.getVariable(Constants.PlayerVarCurrentQuest);
 
         if (currentQuest) {
-            if (currentQuest === 'questBasicDataTypes') {
+            if (currentQuest === Constants.QuestBasicDataTypes) {
                 await player.showText(
                     'Ich bin der Mathemagier und habe den Blick für das große Ganze. Die Ganzzahlen byte, short, int und long sind meine Leidenschaft.',
                     { talkWith: this }

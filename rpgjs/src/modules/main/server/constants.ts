@@ -3,7 +3,7 @@ import { PlayerOutfit } from "./playerOutfit";
 export class Constants {
 
     // player variables
-    public static readonly PlayerVarAfterIntro = 'AFTER_INTRO';
+    public static readonly PlayerVarAfterIntroDream = 'AFTER_INTRO_DREAM';
     public static readonly PlayerVarCurrentQuest = 'CURRENT_QUEST';
     public static readonly PlayerVarCurrentOutfit = 'CURRENT_OUTFIT';
 
