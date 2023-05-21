@@ -1,4 +1,5 @@
 import { RpgPlayer, RpgPlayerHooks, RpgClassMap, RpgMap, RpgShape, Control, Components } from '@rpgjs/server';
+import { Constants } from './constants';
 
 export const player: RpgPlayerHooks = {
 
@@ -7,6 +8,9 @@ export const player: RpgPlayerHooks = {
         player.setGraphic('princess_001');
         player.setHitbox(16, 16);
         player.setComponentsTop(Components.text('{name}'));
+        
+        player.setVariable(Constants.PlayerVarCurrentOutfit, Constants.PlayerOutfit.OutfitDefault.id);
+
         player.changeMap('introIslandMap');
     },
 
