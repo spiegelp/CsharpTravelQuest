@@ -16,7 +16,11 @@ const { RMSpritesheet } = Presets
         witch_001: require('./assets/witch_001.png'),
         wizard_001: require('./assets/wizard_001.png'),
         maid_001: require('./assets/maid_001.png'),
-        knight_001: require('./assets/knight_001.png')
+        knight_001: require('./assets/knight_001.png'),
+        beach_guy_001: require('./assets/beach_guy_001.png'),
+        beach_guy_002: require('./assets/beach_guy_002.png'),
+        bikini_girl_001: require('./assets/bikini_girl_001.png'),
+        bikini_girl_002: require('./assets/bikini_girl_002.png')
     },
     width: 96,
     height: 128,

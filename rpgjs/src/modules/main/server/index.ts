@@ -7,6 +7,7 @@ import { IntroIslandMap } from './maps/introIslandMap';
 import { DataForestPathMap } from './maps/dataForestPathMap';
 import { CastleFloor1Map } from './maps/castleFloor1Map';
 import { CastleFloor2Map } from './maps/castleFloor2Map';
+import { ControlFlowBeachMap } from './maps/controlFlowBeachMap';
 
 @RpgModule<RpgServer>({ 
     player,
@@ -19,7 +20,8 @@ import { CastleFloor2Map } from './maps/castleFloor2Map';
         DataForestMap,
         DataForestPathMap,
         CastleFloor1Map,
-        CastleFloor2Map
+        CastleFloor2Map,
+        ControlFlowBeachMap
     ]
 })
 export default class RpgServerModuleEngine {}

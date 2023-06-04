@@ -9,7 +9,8 @@ export class Constants {
 
     // quests
     public static readonly QuestBasicDataTypes = 'questBasicDataTypes';
-    public static readonly QuestReturnToCastle = 'returnToCastle';
+    public static readonly QuestReturnToCastle = 'questReturnToCastle';
+    public static readonly QuestControlFlow = 'questControlFlow';
 
     // outfits
     public static readonly PlayerOutfit = new PlayerOutfit();

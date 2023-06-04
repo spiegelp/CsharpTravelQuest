@@ -60,8 +60,18 @@ export const player: RpgPlayerHooks = {
             await player.showText('Löse zuerst das Quiz vom Katzendämonenkönig.');
 
             return false;
-        } else if (player.getCurrentMap()?.id === 'dataForestPathMap' && player.getVariable(Constants.PlayerVarCurrentQuest) === 'castleFloor1Map') {
+        } else if (player.getCurrentMap()?.id === 'dataForestPathMap' && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestReturnToCastle) {
             await player.showText('Sprich mit dem Weißen Ritter, der dich sicher zurück zum Schloss geleiten wird.');
+
+            return false;
+        } else if (player.getCurrentMap()?.id === 'castleFloor1Map' && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestReturnToCastle) {
+            await player.showText('Sprich zuerst mit deinem großen Bruder, dem Prinz.');
+
+            return false;
+        } else if (player.getCurrentMap()?.id === 'castleFloor1Map' && nextMap.id !== 'castleFloor2Map'
+                && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestControlFlow
+                && player.getVariable(Constants.PlayerVarCurrentOutfit) !== Constants.PlayerOutfit.OutfitSwimsuit.id) {
+            await player.showText('Ziehe dir zuerst deinen Badeanzug an.');
 
             return false;
         }
