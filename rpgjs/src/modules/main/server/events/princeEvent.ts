@@ -26,10 +26,32 @@ export class PrinceEvent extends RpgEvent {
 
                 player.setVariable(Constants.PlayerVarCurrentQuest, Constants.QuestControlFlow);
             } else if (currentQuest === Constants.QuestControlFlow) {
-                await player.showText(
-                    'Bist du bereit für den Strand?',
-                    { talkWith: this }
-                );
+                if (player.getCurrentMap()?.id === 'castleFloor1Map') {
+                    if (player.getVariable(Constants.PlayerVarCurrentOutfit) === Constants.PlayerOutfit.OutfitSwimsuit.id) {
+                        let choice = await player.showChoices(
+                            'Bist du bereit für den Strand?',
+                            [
+                                { text: 'Ja, gehen wir los!', value: true },
+                                { text: 'Gehen wir lieber noch nicht.', value: false }
+                            ],
+                            { talkWith: this }
+                        );
+    
+                        if (choice && choice.value) {
+                            player.changeMap("controlFlowBeachMap");
+                        }
+                    } else {
+                        await player.showText(
+                            'Ziehe dir zuerst deinen Badeanzug an.',
+                            { talkWith: this }
+                        );
+                    }
+                } else if (player.getCurrentMap()?.id === 'controlFlowBeachMap') {
+                    await player.showText(
+                        'Ich kann diesen Tunichtgut nirgendwo entdecken. Vielleicht ist hier irgendwo einer seiner Handlager, der sich verplappert.',
+                        { talkWith: this }
+                    );
+                }
             }
         }
     }

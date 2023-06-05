@@ -19,11 +19,6 @@ export class BikiniGirl1Event extends RpgEvent {
         if (currentQuest) {
             if (currentQuest === Constants.QuestControlFlow) {
                 await player.showText(
-                    'if - else if - else:',
-                    { talkWith: this }
-                );
-
-                await player.showText(
                     'Wenn ich den rosa Bikini anhabe, sehe ich niedlich aus.',
                     { talkWith: this }
                 );
@@ -35,6 +30,11 @@ export class BikiniGirl1Event extends RpgEvent {
 
                 await player.showText(
                     'In allen sonstigen Farben sehe einfach nur hinreißend aus.',
+                    { talkWith: this }
+                );
+
+                await player.showText(
+                    'Wie bei einer richtigen if-Anweisung mit mehreren Fällen.',
                     { talkWith: this }
                 );
             }

@@ -69,11 +69,16 @@ export const player: RpgPlayerHooks = {
 
             return false;
         } else if (player.getCurrentMap()?.id === 'castleFloor1Map' && nextMap.id !== 'castleFloor2Map'
-                && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestControlFlow
-                && player.getVariable(Constants.PlayerVarCurrentOutfit) !== Constants.PlayerOutfit.OutfitSwimsuit.id) {
-            await player.showText('Ziehe dir zuerst deinen Badeanzug an.');
+                && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestControlFlow) {
+            if (player.getVariable(Constants.PlayerVarCurrentOutfit) !== Constants.PlayerOutfit.OutfitSwimsuit.id) {
+                await player.showText('Ziehe dir zuerst deinen Badeanzug an.');
 
-            return false;
+                return false;
+            } else {
+                /*await player.showText('Sprich mit deinem großen Bruder.');
+
+                return false;*/
+            }
         }
 
         return true;
