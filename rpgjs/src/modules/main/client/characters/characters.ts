@@ -21,7 +21,8 @@ const { RMSpritesheet } = Presets
         beach_guy_002: require('./assets/beach_guy_002.png'),
         bikini_girl_001: require('./assets/bikini_girl_001.png'),
         bikini_girl_002: require('./assets/bikini_girl_002.png'),
-        beach_neko_001: require('./assets/beach_neko_001.png')
+        beach_neko_001: require('./assets/beach_neko_001.png'),
+        soldier_003: require('./assets/soldier_003.png')
     },
     width: 96,
     height: 128,
