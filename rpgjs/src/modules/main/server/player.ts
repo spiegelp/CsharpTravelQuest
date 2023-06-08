@@ -60,8 +60,9 @@ export const player: RpgPlayerHooks = {
             await player.showText('Löse zuerst das Quiz vom Katzendämonenkönig.');
 
             return false;
-        } else if (player.getCurrentMap()?.id === 'dataForestPathMap' && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestReturnToCastle) {
-            await player.showText('Sprich mit dem Weißen Ritter, der dich sicher zurück zum Schloss geleiten wird.');
+        } else if (player.getCurrentMap()?.id === 'dataForestPathMap' && nextMap.id !== 'castleFloor1Map'
+                && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestReturnToCastle) {
+            await player.showText('Sprich mit dem Weißen Ritter, der dich sicher zurück zum alten Schloss geleiten wird.');
 
             return false;
         } else if (player.getCurrentMap()?.id === 'castleFloor1Map' && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestReturnToCastle) {
@@ -74,11 +75,15 @@ export const player: RpgPlayerHooks = {
                 await player.showText('Ziehe dir zuerst deinen Badeanzug an.');
 
                 return false;
-            } else {
-                /*await player.showText('Sprich mit deinem großen Bruder.');
+            } /*else {
+                await player.showText('Sprich mit deinem großen Bruder.');
 
-                return false;*/
-            }
+                return false;
+            }*/
+        } else if (player.getCurrentMap()?.id === 'controlFlowBeachMap' && player.getVariable(Constants.PlayerVarCurrentQuest) === Constants.QuestControlFlow) {
+            await player.showText('Hole dir zuerst weitere Informationen von einem Handlanger des Katzendämonenkönigs ein.');
+
+            return false;
         }
 
         return true;

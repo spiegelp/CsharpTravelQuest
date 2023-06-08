@@ -20,7 +20,7 @@ export class WhiteKnightEvent extends RpgEvent {
         if (currentQuest) {
             if (currentQuest === Constants.QuestReturnToCastle) {
                 await player.showText(
-                    'Seid Ihr wohlauf, Eure Hoheit? Ich geleite Euch sicher zum Schloss zurück.',
+                    'Seid Ihr wohlauf, Eure Hoheit? Ich geleite Euch sicher zum alten Schloss zurück.',
                     { talkWith: this }
                 );
 

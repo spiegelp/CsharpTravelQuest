@@ -28,7 +28,7 @@ export class PrinceEvent extends RpgEvent {
             } else if (currentQuest === Constants.QuestControlFlow) {
                 if (player.getCurrentMap()?.id === 'castleFloor1Map') {
                     if (player.getVariable(Constants.PlayerVarCurrentOutfit) === Constants.PlayerOutfit.OutfitSwimsuit.id) {
-                        let choice = await player.showChoices(
+                        /*let choice = await player.showChoices(
                             'Bist du bereit für den Strand?',
                             [
                                 { text: 'Ja, gehen wir los!', value: true },
@@ -39,7 +39,12 @@ export class PrinceEvent extends RpgEvent {
     
                         if (choice && choice.value) {
                             player.changeMap("controlFlowBeachMap");
-                        }
+                        }*/
+
+                        await player.showText(
+                            'Bist du bereit für den Strand? Er liegt im Südwesten vom Schloss.',
+                            { talkWith: this }
+                        );
                     } else {
                         await player.showText(
                             'Ziehe dir zuerst deinen Badeanzug an.',
@@ -48,7 +53,7 @@ export class PrinceEvent extends RpgEvent {
                     }
                 } else if (player.getCurrentMap()?.id === 'controlFlowBeachMap') {
                     await player.showText(
-                        'Ich kann diesen Tunichtgut nirgendwo entdecken. Vielleicht ist hier irgendwo einer seiner Handlager, der sich verplappert.',
+                        'Ich kann diesen Tunichtgut nirgendwo entdecken. Vielleicht ist hier irgendwo einer seiner Handlanger, der sich verplappert.',
                         { talkWith: this }
                     );
                 }
