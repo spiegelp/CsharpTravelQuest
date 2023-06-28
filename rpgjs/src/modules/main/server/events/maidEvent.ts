@@ -22,7 +22,8 @@ export class MaidEvent extends RpgEvent {
                 { text: 'Formelle Robe', value: Constants.PlayerOutfit.OutfitFormal },
                 { text: 'Niedliches Kleid', value: Constants.PlayerOutfit.OutfitCute },
                 { text: 'Rüstung', value: Constants.PlayerOutfit.OutfitArmor },
-                { text: 'Badeanzug', value: Constants.PlayerOutfit.OutfitSwimsuit }
+                { text: 'Badeanzug', value: Constants.PlayerOutfit.OutfitSwimsuit },
+                { text: 'Wintermantel', value: Constants.PlayerOutfit.OutfitWinter }
             ],
             { talkWith: this }
         );

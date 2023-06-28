@@ -9,6 +9,7 @@ const { RMSpritesheet } = Presets
         princess_005: require('./assets/princess_005.png'),
         princess_006: require('./assets/princess_006.png'),
         princess_007: require('./assets/princess_007.png'),
+        princess_010: require('./assets/princess_010.png'),
         prince_001: require('./assets/prince_001.png'),
         demon_king_neko_001: require('./assets/demon_king_neko_001.png'),
         bard_001: require('./assets/bard_001.png'),

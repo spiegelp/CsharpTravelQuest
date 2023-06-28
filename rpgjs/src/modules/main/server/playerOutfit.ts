@@ -8,6 +8,7 @@ export class PlayerOutfit {
     public readonly OutfitCute = { id: 'outfitCute', imageId: 'princess_003' };
     public readonly OutfitArmor = { id: 'outfitArmor', imageId: 'princess_006' };
     public readonly OutfitSwimsuit = { id: 'outfitSwimsuit', imageId: 'princess_007' };
+    public readonly OutfitWinter = { id: 'outfitWinter', imageId: 'princess_010' };
 
     public changeOutfit(player: RpgPlayer, outfit: any) : void {
         player.setGraphic(outfit.imageId);
