@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="47" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="9">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="47" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="11">
  <tileset firstgid="1" source="[Base]BaseChip_pipo.tsx"/>
  <tileset firstgid="1001" source="[A]Water_pipo.tsx"/>
  <tileset firstgid="4073" source="[A]Dirt_pipo.tsx"/>
@@ -69,5 +69,13 @@
    </properties>
   </object>
   <object id="8" name="entryControlFlowBeach" x="76" y="930"/>
+  <object id="9" name="exitStatementMountain" x="1024" y="952" width="64" height="8">
+   <properties>
+    <property name="entryPointId" value="entryNorth"/>
+    <property name="nextMapId" value="statementMountainFootMap"/>
+    <property name="type" value="changeMap"/>
+   </properties>
+  </object>
+  <object id="10" name="entryStatementMountain" x="1040" y="930"/>
  </objectgroup>
 </map>

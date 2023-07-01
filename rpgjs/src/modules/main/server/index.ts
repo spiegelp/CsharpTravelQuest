@@ -10,6 +10,7 @@ import { CastleFloor2Map } from './maps/castleFloor2Map';
 import { ControlFlowBeachMap } from './maps/controlFlowBeachMap';
 import { CastlePathMap } from './maps/castlePathMap';
 import { statementMountainFootMap } from './maps/statementMountainFootMap';
+import { statementMountainMidMap } from './maps/statementMountainMidMap';
 
 @RpgModule<RpgServer>({ 
     player,
@@ -25,7 +26,8 @@ import { statementMountainFootMap } from './maps/statementMountainFootMap';
         CastleFloor2Map,
         CastlePathMap,
         ControlFlowBeachMap,
-        statementMountainFootMap
+        statementMountainFootMap,
+        statementMountainMidMap
     ]
 })
-export default class RpgServerModuleEngine {}
+export default class RpgServerModuleEngine { }

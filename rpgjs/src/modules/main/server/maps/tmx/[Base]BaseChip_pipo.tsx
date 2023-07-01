@@ -867,8 +867,12 @@
  </tile>
  <tile id="146">
   <properties>
-   <property name="collision" type="bool" value="true"/>
+   <property name="collision" type="bool" value="false"/>
   </properties>
+  <objectgroup draworder="index" id="2">
+   <object id="1" x="0" y="0" width="4" height="32"/>
+   <object id="3" x="28" y="0" width="4" height="32"/>
+  </objectgroup>
  </tile>
  <tile id="147">
   <properties>
